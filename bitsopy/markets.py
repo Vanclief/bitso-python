@@ -56,7 +56,7 @@ class Market(object):
         }
         """
 
-        endpoint = ORDERS_URL + symbol
+        endpoint = ORDERS_URL + helpers.parse_symbol(symbol)
         status, response = self.r.get(endpoint)
 
         if status != 200:
@@ -84,7 +84,7 @@ class Market(object):
          }]
         """
 
-        endpoint = TRADES_URL + symbol
+        endpoint = TRADES_URL + helpers.parse_symbol(symbol)
         status, response = self.r.get(endpoint)
 
         if status != 200:
@@ -103,9 +103,19 @@ class Market(object):
             ...
         ]
         """
-
         endpoint = SYMBOL_DETAILS
-        return self.r.get(endpoint)
+        status, response = self.r.get(endpoint)
+
+        if status != 200:
+            return status, response['error']
+
+        parsed_response = []
+
+        for s in response['payload']:
+            symbol = helpers.unparse_symbol(s['book'])
+            parsed_response.append(symbol)
+
+        return status, parsed_response
 
     def get_symbol_details(self):
         """
