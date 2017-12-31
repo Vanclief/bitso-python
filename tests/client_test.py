@@ -43,11 +43,14 @@ def test_should_return_ticker():
             )
 
     expected_response = {
-            "mid": 562.56495,
-            "bid": 562.15,
-            "ask": 562.9799,
-            "last_price": 562.25,
-            "timestamp": 1395552658.339936691
+            "mid": 5576.125,
+            "bid": 5520.01,
+            "ask": 5632.24,
+            "last_price": 5633.98,
+            "low": 5450.0,
+            "high": 5750.0,
+            "volume": 22.31349615,
+            "timestamp": 1460137951.0
             }
 
     response = client.ticker(mock_symbol)
@@ -60,7 +63,7 @@ def test_should_return_orderbook():
     mock_symbol = 'btcmxn'
     mock_body = (
             '{"success": true,"payload": {"asks": [{"book": "btc_mxn",' +
-            '"price": "5632.24", "amount": "1.34491802"}, {"book": "btc_mxn",' +
+            '"price": "5632.24","amount": "1.34491802"}, {"book": "btc_mxn",' +
             '"price": "5633.44","amount": "0.4259"}],"bids": [{' +
             '"book": "btc_mxn", "price": "6123.55", "amount": "1.12560000"' +
             '}, { "book": "btc_mxn", "price": "6121.55","amount": "2.23976"' +
