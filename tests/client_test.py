@@ -61,8 +61,7 @@ def test_should_return_orderbook():
     mock_body = (
             '{"success": true,"payload": {"asks": [{"book": "btc_mxn",' +
             '"price": "5632.24", "amount": "1.34491802"}, {"book": "btc_mxn",' +
-            '"price": "5633.44","amount": "0.4259"}, {"book": "btc_mxn",' +
-            '"price": "5642.14", "amount": "1.21642"}],"bids": [{' +
+            '"price": "5633.44","amount": "0.4259"}],"bids": [{' +
             '"book": "btc_mxn", "price": "6123.55", "amount": "1.12560000"' +
             '}, { "book": "btc_mxn", "price": "6121.55","amount": "2.23976"' +
             '}], "updated_at": "2016-04-08T17:52:31.000+00:00",' +
@@ -79,17 +78,26 @@ def test_should_return_orderbook():
     expected_response = {
             "bids": [
                 {
-                    "price": 562.2601,
-                    "amount": 0.985,
-                    "timestamp": 1395567556.0
-                    }
-                ],
+                    "price": 6123.55,
+                    "amount": 1.1256,
+                    "timestamp": 1460137951.0
+                },
+                {
+                    "price": 6121.55,
+                    "amount": 2.23976,
+                    "timestamp": 1460137951.0
+                }],
             "asks": [
                 {
-                    "price": 563.001,
-                    "amount": 0.3,
-                    "timestamp": 1395532200.0
-                    }
+                    "price": 5632.24,
+                    "amount": 1.34491802,
+                    "timestamp": 1460137951.0
+                },
+                {
+                    "price": 5633.44,
+                    "amount": 0.4259,
+                    "timestamp": 1460137951.0
+                }
                 ]
             }
 
