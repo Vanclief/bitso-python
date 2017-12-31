@@ -90,7 +90,21 @@ class Market(object):
         if status != 200:
             return status, response
 
-        return status, helpers.list_dict_to_float(response)
+        parsed_response = []
+
+        for trades in response['payload']:
+            trades = helpers.dict_to_float(trades)
+            p = {}
+            p['timestamp'] = helpers.str_to_timestamp(trades['created_at'])
+            p['tid'] = trades['tid']
+            p['price'] = trades['price']
+            p['amount'] = trades['amount']
+            p['exchange'] = 'bitso'
+            p['type'] = trades['maker_side']
+
+            parsed_response.append(p)
+
+        return status, parsed_response
 
     def get_symbols(self):
         """

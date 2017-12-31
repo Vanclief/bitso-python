@@ -1,3 +1,7 @@
+import calendar
+import datetime
+
+
 def dict_to_float(d):
     """
     Converts all strings to floats from a dict
@@ -36,3 +40,11 @@ def unparse_symbol(s):
     Converts from btc_mxn  btcmxn
     """
     return s[:3] + s[4:]
+
+
+def str_to_timestamp(s):
+
+    d = datetime.datetime.strptime(s[:19], '%Y-%m-%dT%H:%M:%S')
+    epoch = float(calendar.timegm(d.utctimetuple()))
+
+    return epoch

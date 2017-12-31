@@ -105,10 +105,7 @@ def test_should_return_trades():
             '{"success": true,"payload": [{ "book": "btc_mxn",' +
             '"created_at": "2016-04-08T17:52:31.000+00:00",' +
             '"amount": "0.02000000", "maker_side": "buy","price": "5545.01",' +
-            '"tid": 55845}, {"book": "btc_mxn",' +
-            '"created_at": "2016-04-08T17:52:31.000+00:00",' +
-            '"amount": "0.33723939", "maker_side": "sell",' +
-            '"price": "5633.98", "tid": 55844}]}'
+            '"tid": 55845}]}'
             )
 
     mock_url = TRADES_URL + '?book=btc_mxn'
@@ -120,12 +117,12 @@ def test_should_return_trades():
 
     expected_response = [
             {
-                "timestamp": 1444266681,
-                "tid": 11988919,
-                "price": 244.8,
-                "amount": 0.03297384,
-                "exchange": "bitfinex",
-                "type": "sell"
+                "timestamp": 1460137951.0,
+                "tid": 55845,
+                "price": 5545.01,
+                "amount": 0.02,
+                "exchange": "bitso",
+                "type": "buy"
                 }
             ]
 
