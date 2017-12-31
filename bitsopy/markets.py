@@ -115,13 +115,10 @@ class Market(object):
         [{
             "pair":"btcusd",
             "price_precision":5,
-            "initial_margin":"30.0",
-            "minimum_margin":"15.0",
             "maximum_order_size":"2000.0",
             "minimum_order_size":"0.01",
             "expiration":"NA"
         },
-        ...
         ]
         """
 
@@ -129,6 +126,18 @@ class Market(object):
         status, response = self.r.get(endpoint)
 
         if status != 200:
-            return status, response
+            return status, response['error']
 
-        return status, helpers.list_dict_to_float(response['payload'])
+        parsed_response = []
+
+        for symbol in response['payload']:
+            s = helpers.dict_to_float(symbol)
+            p = {}
+            p['pair'] = helpers.unparse_symbol(s['book'])
+            p['price_precision'] = 5
+            p['maximum_order_size'] = s['maximum_amount']
+            p['minimum_order_size'] = s['minimum_amount']
+            p['expiration'] = "NA"
+            parsed_response.append(p)
+
+        return status, parsed_response

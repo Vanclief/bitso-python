@@ -29,3 +29,10 @@ def parse_symbol(s):
     """
     s = s[:3] + "_" + s[3:]
     return "?book={0}".format(s)
+
+
+def unparse_symbol(s):
+    """
+    Converts from btc_mxn  btcmxn
+    """
+    return s[:3] + s[4:]
