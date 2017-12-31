@@ -40,7 +40,7 @@ b.ticker('btcusd')
 
 - [X]  Add tests
 - [ ]  Add public endpoints
-- [ ]  Add requirements, setup, etc.
+- [X]  Add requirements, setup, etc.
 - [ ]  Add private endpoints
 - [ ]  Unify interface for trading endpoints
 - [ ]  Upload to pip
