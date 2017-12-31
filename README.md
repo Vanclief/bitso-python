@@ -29,11 +29,11 @@ python setup.py install
 ## Usage
 
 ```py
-from bitsopy import Bitso
+from bitsopy.bitso import Bitso
 
 b = Bitso()
 
-b.ticker('btcusd')
+b.ticker('btcmxn')
 ```
 
 ## TODO
