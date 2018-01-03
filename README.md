@@ -6,10 +6,10 @@ each exchange has a different api. This results on a lot of disparities on how l
 Planned exchanges:
 
 - [X] [Bitfinex](https://github.com/Vanclief/bitfinex-python)
-- [ ] [Kraken](https://github.com/Vanclief/kraken-python)
+- [X] [Kraken](https://github.com/Vanclief/kraken-python)
 - [X] [Bitso](https://github.com/Vanclief/bitso-python)
 - [ ] [Gdax/Coinbase](https://github.com/Vanclief/gdax-python)
-- [ ] [Gemini](https://github.com/Vanclief/gemini-python)
+- [X] [Gemini](https://github.com/Vanclief/gemini-python)
 
 *Note:* While I attempt to avoid making breaking changes, this library is still 
 work in progress (WIP), use under your own risk.
