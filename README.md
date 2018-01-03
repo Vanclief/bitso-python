@@ -39,9 +39,9 @@ b.ticker('btcmxn')
 ## TODO
 
 - [X]  Add tests
-- [ ]  Add public endpoints
+- [X]  Add public endpoints
 - [X]  Add requirements, setup, etc.
-- [X]  Add private endpoints
+- [ ]  Add private endpoints
 - [ ]  Unify interface for trading endpoints
 - [ ]  Upload to pip
 
